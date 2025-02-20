@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+
+
+
+}
+/* Botón hamburguesa */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 30;
+    color: white;
+}
+/* Menú */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%); /* Se oculta fuera de pantalla */
+    transition: transform 0.4s ease-in-out;
+    pointer-events: none;
+    z-index: 20;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.navbar.open {
+    transform: translateX(0); /* Se desliza desde la izquierda */
+    pointer-events: all;
+}
+h1 {
+    position: absolute;
+    top: 10px;
+    font-size: 6rem;
+    font-weight: bold;
+    color: black;
+}
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slides-container {
+    display: flex;
+    transition: transform 1.5s ease-in-out;
+    will-change: transform;
+}
+.slide {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    flex-shrink: 0;
+}
