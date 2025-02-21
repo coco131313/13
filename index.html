@@ -10,13 +10,20 @@
     <title>ESTUDIO 13</title>
 </head>
 <body>
-    <button class="hamburger-menu" onclick="toggleMenu()">13</button>
-
-    <!-- Menú Hamburguesa -->
+    <div class="header">
+        <img src="img/logo.jpg" alt="Logo" class="logo"></div>             
+   <div>
+    <button class="hamburger-menu-about menu" onclick="toggleMenu()">☰</button>
+         <!-- Menú Hamburguesa -->
     <nav class="navbar" id="navbar">
-        <a href="#about">About</a>
-        <a href="#services">Servicios</a>
+        <a href="13.html">INICIO</a>
+        <a href="about.html">ABOUT</a>
+        <a href="Servicios.html">SERVICIOS</a>
+        
+        
     </nav>
+   </div> 
+    </div>
 
     <div class="slider" id="slider">
         <div class="slides-container" id="slides-container">
@@ -26,25 +33,38 @@
             <img src="img/3.jpg" class="slide">
             <img src="img/4.jpg" class="slide">
             <img src="img/5.jpg" class="slide">
+            <img src="img/6.jpg" class="slide">
+            <img src="img/7.jpg" class="slide">
+            <img src="img/8.jpg" class="slide">
+            <img src="img/9.jpg" class="slide">
+            <img src="img/10.jpg" class="slide">
+            <img src="img/11.jpg" class="slide">
+            <img src="img/12.jpg" class="slide">
+            <img src="img/13.jpg" class="slide">
+            <img src="img/14.jpg" class="slide">
+            
         </div>
     </div>
+    <div class="footer">SUMMER 2025</div>
     <script>
-        let currentIndex = 0;
+             let currentIndex = 0;
         const slidesContainer = document.getElementById("slides-container");
         const slides = document.querySelectorAll(".slide");
         
         function showNextSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
-            slidesContainer.style.transition = "transform 1.5s ease-in-out";
+            slidesContainer.style.transition = "transform 0.8s ease-in-out";
             slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
-        document.getElementById("slider").addEventListener("click", showNextSlide);
+        setInterval(showNextSlide, 3000); // Cambia de imagen cada 3 segundos
 
         // Función para mostrar/ocultar el menú
         function toggleMenu() {
             document.getElementById("navbar").classList.toggle("open");
         }
     </script>
+
 </body>
+
 </html>
