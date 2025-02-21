@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTUDIO 13 - Servicios</title>
+</head>
+<body>
+    <div class="header">
+        <img src="img/logo.jpg" alt="Logo" class="logo"></div>             
+   <div>
+    <button class="hamburger-menu-about men" onclick="toggleMenu()">☰</button>
+         <!-- Menú Hamburguesa -->
+    <nav class="navbar" id="navbar">
+        <a href="13.html">INICIO</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#servicios.html">SERVICIOS</a>
+        
+    </nav>
+   </div> 
+    </div>
+  
+    <div class="hero">¿Qué necesitas?</div>
+    <div class="services-container">
+        <div class="service-group">
+            <div class="service">
+                <h2>Fotografía Profesional</h2>
+                <p>Productos, locales, retratos corporativos, eventos.</p>
+            </div>
+            <div class="service">
+                <h2>Material Gráfico</h2>
+                <p>Photobooks personalizados, impresión de fotos, posters y más.</p>
+            </div>
+        </div>
+        <div class="service-group">
+            <div class="service">
+                <h2>Producción Audiovisual</h2>
+                <p>Videos publicitarios, institucionales, reels para redes y más.</p>
+            </div>
+            <div class="service">
+                <h2>Gestión de Redes Sociales</h2>
+                <p>Creación de contenido, estrategia y manejo de redes.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.querySelector(".hero").classList.add("slide-left");
+            }, 1500);
+            
+            setTimeout(() => {
+                document.querySelector(".services-container").style.transform = "translateX(0)";
+            }, 2500);
+        });
+          // Función para mostrar/ocultar el menú
+   function toggleMenu() {
+       document.getElementById("navbar").classList.toggle("open");
+   }
+    </script>
+</body>
+</html>
