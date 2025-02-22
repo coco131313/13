@@ -7,24 +7,27 @@
     <title>About</title>
 </head>
 <body>
-   <button class="hamburger-menu-about men" onclick="toggleMenu()">☰</button>
+
+ <div class="header">
+        <img src="img/logo.png" alt="Logo" class="logo"></div>             
+   <div>
+    <button class="hamburger-menu-about men" onclick="toggleMenu()">☰</button>
          <!-- Menú Hamburguesa -->
     <nav class="navbar" id="navbar">
         <a href="index.html">INICIO</a>
         <a href="about.html">ABOUT</a>
-        <a href="Servicios.html">OFRECEMOS</a>
+        <a href="servicios.html">SERVICIOS</a>
+        <a href="Contacto.html">CONTACTO</a>  
         
     </nav>
-    <div class="about">
-        <img class="logo-about" src="img/logo.png" alt="">
-        <div class="about-content">
-            <p>
-                Somos un estudio donde convergen la creatividad y la innovación.
-                 Nos dedicamos a la producción visual con un enfoque único, fusionando arte y tecnología para ofrecer resultados impactantes.
-            </p>
-        </div>
+   </div> 
     </div>
-  <div class="footer">SUMMER 2025</div>
+    <div class="about-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="13.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+    </div>
     <script>
    // Función para mostrar/ocultar el menú
    function toggleMenu() {
