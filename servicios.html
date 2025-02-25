@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESTUDIO 13 - Servicios</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header fijo -->
     <div class="header">
-        <img src="img/logo.jpg" alt="Logo" class="logo"></div>             
-   <div>
-    <button class="hamburger-menu-about men" onclick="toggleMenu()">☰</button>
-         <!-- Menú Hamburguesa -->
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <button class="hamburger-menu-about" onclick="toggleMenu()">☰</button>
+    </div>             
+
+    <!-- Menú -->
     <nav class="navbar" id="navbar">
         <a href="index.html">INICIO</a>
         <a href="about.html">ABOUT</a>
         <a href="servicios.html">SERVICIOS</a>
         <a href="contacto.html">CONTACTO</a>  
-        
     </nav>
-   </div> 
-    </div>
-  
+
+    <!-- Hero Section -->
     <div class="hero">¿Qué necesitas?</div>
+
+    <!-- Contenedor de Servicios -->
     <div class="services-container">
-        <img src="img/servicios.jpg" alt="">
+        <img src="img/servicios.jpg" alt="Servicios">
     </div>
-    <div class="footer"></div>
+
+    <!-- Script para el scroll automático -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
-                document.querySelector(".hero").classList.add("slide-left");
-            }, 1500);
-            
-            setTimeout(() => {
-                document.querySelector(".services-container").style.transform = "translateX(0)";
-            }, 2500);
+                document.querySelector(".services-container").scrollIntoView({ behavior: "smooth" });
+            }, 3000);
         });
-          // Función para mostrar/ocultar el menú
-   function toggleMenu() {
-       document.getElementById("navbar").classList.toggle("open");
-   }
+
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("open");
+        }
     </script>
 </body>
 </html>
