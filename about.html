@@ -37,6 +37,14 @@
    function toggleMenu() {
        document.getElementById("navbar").classList.toggle("open");
    }
+        document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("background-video");
+
+    video.play().catch(error => {
+        console.log("Autoplay bloqueado, intentando de nuevo...");
+        video.muted = true;
+        video.play();
+    });
 </script>
 
 </body>
