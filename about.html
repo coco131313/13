@@ -37,14 +37,23 @@
    function toggleMenu() {
        document.getElementById("navbar").classList.toggle("open");
    }
-        document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("background-video");
 
-    video.play().catch(error => {
-        console.log("Autoplay bloqueado, intentando de nuevo...");
-        video.muted = true;
-        video.play();
-    });
+
+   document.addEventListener("DOMContentLoaded", function () {
+            const videos = document.querySelectorAll("video");
+
+            videos.forEach(video => {
+                video.setAttribute("muted", "true");
+                video.setAttribute("playsinline", "true");
+
+                video.play().catch(error => {
+                    console.log("Autoplay bloqueado, intentando reiniciar...");
+                    setTimeout(() => {
+                        video.play();
+                    }, 1000);
+                });
+            });
+        });
 </script>
 
 </body>
