@@ -1,108 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200..1000&display=swap" rel="stylesheet">
-    <title>ESTUDIO 13</title>
-</head>
-<body>
-    <!-- Header fijo -->
-    <div class="header">
-        <img src="img/logo.png" alt="Logo" class="logo">
-        <button class="hamburger-menu-about" onclick="toggleMenu()">☰</button>
-    </div>             
-
-    <!-- Menú -->
-    <nav class="navbar" id="navbar">
-        <a href="index.html">INICIO</a>
-        <a href="about.html">ABOUT</a>
-        <a href="servicios.html">SERVICIOS</a>
-        <a href="contacto.html">CONTACTO</a>  
-    </nav>
-
-    <div class="slider-container">
-        <div class="slider" id="slider">
-            <img src="img/logoweb13-100.jpg" class="destok-slide">
-            <video autoplay loop muted playsinline class="destok-slide inicio-video">
-                <source src="juicyst.mp4" type="video/mp4">
-                Tu navegador no soporta videos.
-            </video>
-            <img src="img/2.jpg" class="destok-slide">
-            <img src="img/3.jpg" class="destok-slide">
-            <img src="img/4.jpg" class="destok-slide">
-            <video autoplay loop muted playsinline class="destok-slide inicio-video">
-                <source src="cafe.mp4" type="video/mp4">
-                Tu navegador no soporta videos.
-            </video>
-            <img src="img/5.jpg" class="destok-slide">
-            <img src="img/6.jpg" class="destok-slide">
-            <img src="img/7.jpg" class="destok-slide">
-            <img src="img/8.jpg" class="destok-slide">
-            <img src="img/9.jpg" class="destok-slide">
-            <img src="img/10.jpg" class="destok-slide">
-            <img src="img/11.jpg" class="destok-slide">
-            <img src="img/12.jpg" class="destok-slide">
-            <img src="img/13.jpg" class="destok-slide">
-            <img src="img/14.jpg" class="destok-slide">
-            <img src="imgv/web.jpg" class="slide mobile-slide">
-
-            <video autoplay loop muted playsinline class="mobile-slide inicio-video">
-                <source src="juicyst.mp4" type="video/mp4">
-                Tu navegador no soporta videos.
-            </video>
-            <img src="imgv/2.jpg" class="slide mobile-slide">
-            <img src="imgv/3.jpg" class="slide mobile-slide">
-            <img src="imgv/4.jpg" class="slide mobile-slide">
-            <img src="imgv/5.jpg" class="slide mobile-slide">
-            <video autoplay loop muted playsinline class="mobile-slide inicio-video">
-                <source src="cafe.mp4" type="video/mp4">
-                Tu navegador no soporta videos.
-            </video>
-            <img src="imgv/6.jpg" class="slide mobile-slide">
-            <img src="imgv/7.jpg" class="slide mobile-slide">
-            <img src="imgv/8.jpg" class="slide mobile-slide">
-            <img src="imgv/9.jpg" class="slide mobile-slide">
-            <img src="imgv/10.jpg" class="slide mobile-slide">
-            <img src="imgv/11.jpg" class="slide mobile-slide">
-            <img src="imgv/12.jpg" class="slide mobile-slide">
-            <img src="imgv/13.jpg" class="slide mobile-slide">
-            <img src="imgv/14.jpg" class="slide mobile-slide">
-            <img src="imgv/15.jpg" class="slide mobile-slide">
-        </div>
-    </div>
-
     <script>
+        // Función para mostrar/ocultar el menú
         function toggleMenu() {
             document.getElementById("navbar").classList.toggle("open");
         }
 
-        let currentIndex = 0;
-        function showNextSlide() {
-            const slider = document.getElementById("slider");
-            const slides = document.querySelectorAll(".slide");
-            const isMobile = window.innerWidth <= 768;
-
-            if (isMobile) {
-                slider.style.transform = `translateY(-${currentIndex * 100}%)`;
-            } else {
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            currentIndex = (currentIndex + 1) % slides.length;
-        }
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("background-video");
-
-    video.play().catch(error => {
-        console.log("Autoplay bloqueado, intentando de nuevo...");
-        video.muted = true;
-        video.play();
-
+        document.addEventListener("DOMContentLoaded", function () {
+            const videos = document.querySelectorAll("video");
+            videos.forEach(video => {
+                video.play().catch(error => {
+                    console.log("Autoplay bloqueado, intentando de nuevo...");
+                    video.muted = true;
+                    video.play();
+                });
+            });
+        });
     </script>
-</body>
-</html>
