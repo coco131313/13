@@ -5,65 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200..1000&display=swap" rel="stylesheet">
     <title>ESTUDIO 13</title>
 </head>
 <body>
+    <!-- Header fijo -->
     <div class="header">
-        <img src="img/logo.jpg" alt="Logo" class="logo"></div>             
-   <div>
-    <button class="hamburger-menu-about menu" onclick="toggleMenu()">☰</button>
-         <!-- Menú Hamburguesa -->
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <button class="hamburger-menu-about" onclick="toggleMenu()">☰</button>
+    </div>             
+
+    <!-- Menú -->
     <nav class="navbar" id="navbar">
         <a href="index.html">INICIO</a>
         <a href="about.html">ABOUT</a>
-        <a href= "servicios.html">SERVICIOS</a>
-        <a href="contacto.html">CONTACTO</a>        
-        
+        <a href="servicios.html">SERVICIOS</a>
+        <a href="contacto.html">CONTACTO</a>  
     </nav>
-   </div> 
-    </div>
 
-    <div class="slider" id="slider">
-        <div class="slides-container" id="slides-container">
-            <img src="img/logoweb13-100.jpg" class="slide">
-            <img src="img/1.jpg" class="slide">
-            <img src="img/2.jpg" class="slide">
-            <img src="img/3.jpg" class="slide">
-            <img src="img/4.jpg" class="slide">
-            <img src="img/5.jpg" class="slide">
-            <img src="img/6.jpg" class="slide">
-            <img src="img/7.jpg" class="slide">
-            <img src="img/8.jpg" class="slide">
-            <img src="img/9.jpg" class="slide">
-            <img src="img/10.jpg" class="slide">
-            <img src="img/11.jpg" class="slide">
-            <img src="img/12.jpg" class="slide">
-            <img src="img/13.jpg" class="slide">
-            <img src="img/14.jpg" class="slide">
-            
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <img src="img/logoweb13-100.jpg" class="destok-slide">
+            <video autoplay loop muted playsinline class="destok-slide inicio-video">
+                <source src="juicyst.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <img src="img/2.jpg" class="destok-slide">
+            <img src="img/3.jpg" class="destok-slide">
+            <img src="img/4.jpg" class="destok-slide">
+            <video autoplay loop muted playsinline class="destok-slide inicio-video">
+                <source src="cafe.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <img src="img/5.jpg" class="destok-slide">
+            <img src="img/6.jpg" class="destok-slide">
+            <img src="img/7.jpg" class="destok-slide">
+            <img src="img/8.jpg" class="destok-slide">
+            <img src="img/9.jpg" class="destok-slide">
+            <img src="img/10.jpg" class="destok-slide">
+            <img src="img/11.jpg" class="destok-slide">
+            <img src="img/12.jpg" class="destok-slide">
+            <img src="img/13.jpg" class="destok-slide">
+            <img src="img/14.jpg" class="destok-slide">
+            <img src="imgv/web.jpg" class="slide mobile-slide">
+
+            <video autoplay loop muted playsinline class="mobile-slide inicio-video">
+                <source src="juicyst.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <img src="imgv/2.jpg" class="slide mobile-slide">
+            <img src="imgv/3.jpg" class="slide mobile-slide">
+            <img src="imgv/4.jpg" class="slide mobile-slide">
+            <img src="imgv/5.jpg" class="slide mobile-slide">
+            <video autoplay loop muted playsinline class="mobile-slide inicio-video">
+                <source src="cafe.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <img src="imgv/6.jpg" class="slide mobile-slide">
+            <img src="imgv/7.jpg" class="slide mobile-slide">
+            <img src="imgv/8.jpg" class="slide mobile-slide">
+            <img src="imgv/9.jpg" class="slide mobile-slide">
+            <img src="imgv/10.jpg" class="slide mobile-slide">
+            <img src="imgv/11.jpg" class="slide mobile-slide">
+            <img src="imgv/12.jpg" class="slide mobile-slide">
+            <img src="imgv/13.jpg" class="slide mobile-slide">
+            <img src="imgv/14.jpg" class="slide mobile-slide">
+            <img src="imgv/15.jpg" class="slide mobile-slide">
         </div>
     </div>
+
     <script>
-             let currentIndex = 0;
-        const slidesContainer = document.getElementById("slides-container");
-        const slides = document.querySelectorAll(".slide");
-        
-        function showNextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            slidesContainer.style.transition = "transform 0.8s ease-in-out";
-            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        setInterval(showNextSlide, 3000); // Cambia de imagen cada 3 segundos
-
-        // Función para mostrar/ocultar el menú
         function toggleMenu() {
             document.getElementById("navbar").classList.toggle("open");
         }
+
+        let currentIndex = 0;
+        function showNextSlide() {
+            const slider = document.getElementById("slider");
+            const slides = document.querySelectorAll(".slide");
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                slider.style.transform = `translateY(-${currentIndex * 100}%)`;
+            } else {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            currentIndex = (currentIndex + 1) % slides.length;
+        }
+
+        setInterval(showNextSlide, 4000);
     </script>
-
 </body>
-
 </html>
