@@ -96,6 +96,10 @@
         }
 
         setInterval(showNextSlide, 4000);
+        document.addEventListener("DOMContentLoaded", function () {
+    const video = document.querySelector("video");
+    video.play().catch(error => console.log("Autoplay bloqueado:", error));
+});
     </script>
 </body>
 </html>
