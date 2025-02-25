@@ -166,7 +166,7 @@ body {
 /* Imagen alternativa para móvil */
 @media screen and (max-width: 768px) {
     .services-container img {
-        content: url('img/serviciosmovill.png'); /* Imagen alternativa para móvil */
+        content: url('img/serviciosmovill.png'); /* Imagen alterntiva para móvil */
         width: 100%;
         height: 100vh;
         object-fit: contain;
