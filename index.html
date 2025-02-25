@@ -95,11 +95,14 @@
             currentIndex = (currentIndex + 1) % slides.length;
         }
 
-        setInterval(showNextSlide, 4000);
-        document.addEventListener("DOMContentLoaded", function () {
-    const video = document.querySelector("video");
-    video.play().catch(error => console.log("Autoplay bloqueado:", error));
-});
+   document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("background-video");
+
+    video.play().catch(error => {
+        console.log("Autoplay bloqueado, intentando de nuevo...");
+        video.muted = true;
+        video.play();
+    });
     </script>
 </body>
 </html>
