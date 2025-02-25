@@ -1,3 +1,4 @@
+/* Reset y configuración general */
 * {
     margin: 0;
     padding: 0;
@@ -6,202 +7,210 @@
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
     flex-direction: column;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
     font-family: 'Nunito Sans', sans-serif;
-
-
-
+    overflow-x: hidden;
 }
-/* Botón hamburguesa */
-.hamburger-menu {
+
+/* Header fijo */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    z-index: 100;
+    flex-direction: row-reverse; /* Invierte el orden de los elementos */
+    width: 100%;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 3px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.hamburger-menu-about {
     font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 30;
-    color: rgb(255, 255, 255);
+    color: black;
 }
 
 /* Menú */
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
-    height: 50vh;
+    left: 10px;
+    height: 60vh;
     width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    left: 30px;
-    transform: translateX(-100%); /* Se oculta fuera de pantalla */
+    transform: translateX(-100%);
     transition: transform 0.4s ease-in-out;
     pointer-events: none;
     z-index: 20;
 }
+
 .navbar a {
-    color: rgb(0, 0, 0);
+    color: black;
     text-decoration: none;
     font-size: 1.3rem;
-    font-weight:100;
+    font-weight: 100;
     margin: 15px 0;
 }
+
 .navbar.open {
-    transform: translateX(0); /* Se desliza desde la izquierda */
+    transform: translateX(0);
     pointer-events: all;
 }
-h1 {
-    position: absolute;
-    top: 10px;
-    font-size: 6rem;
-    font-weight: bold;
-    color: black;
-}
-.slider {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.slides-container {
-    display: flex;
-    transition: transform 1.5s ease-in-out;
-    will-change: transform;
-}
-.slide {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    flex-shrink: 0;
-}
 
-.hamburger-menu-about {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        font-size: 2rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 30;
-        color: black;
-}
-
+/* Sección hero */
 .hero {
     font-size: 3rem;
     font-weight: lighter;
-    position: absolute;
-    top: 40%;
-    transition: transform 1.5s ease-in-out;
-}
-.slide-left {
-    transform: translateX(-100vw);
-}
-.services-container {
-    display: flex;
-    justify-content: space-between;
-    width: -100vw;
-    height: 90%;
     text-align: center;
-    transform: translateX(100vw);
-    transition: transform 2s ease-in-out;
-    position: absolute;
-    top: 10%;
-
-}
-.service-group {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 45%;
-}
-.service h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-.service p {
-    font-size: 1rem;
-
-}
-.header {
-    position: absolute;
-    top: 15px;
-    width: 80vw;
-    max-width: 900px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-.logo {
-    height: 50px;
-    top: 8px;
-    position: absolute;
-    right: -37%;
-    transform: translateX(-50%);
-}
-.logo-about{
-    height: 200px;
-    top: 18%;
-    position: absolute;
-    right: 40%;
-   
-    
+    justify-content: center;
 }
 
-.background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.about-content {
-    position: relative;
-    z-index: 1;
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Opcional, para mejor visibilidad del texto */
-    border-radius: 10px;
-}
-.about-section {
-    position: relative;
-    width: 90%;
-    height: 80vh;
+/* Contenedor de servicios */
+.services-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
     text-align: center;
-    color: white;
-    overflow: hidden;
+    overflow: hidden; /* Evita desbordes */
 }
-.footer {
-    position: absolute;
-    bottom: 0px;
+
+.services-container img {
+    width: 100vw; /* Hace que la imagen ocupe todo el ancho */
+    height: 100vh; /* Hace que la imagen ocupe toda la altura */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+
+}
+/* Ajuste del contenedor del slider */
+.slider-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Configuración del slider */
+.slider {
+    display: flex;
     width: 100%;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-   background-color: white;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.destok-slide {
+    width: 100%;
+    height: 100h;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+/* Ajuste de las imágenes dentro del slider */
+.slider img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Evita espacios en blanco sin deformar */
+}
+
+/* Esconder imágenes de móvil en pantallas grandes */
+.mobile-slide {
+    display: none;
+}
+
+.inicio-video {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+.background-video {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 900%;
+    object-fit: contain;
+    z-index: -1;
 }
 .contacto {
- width: 75%;
- height: 90%;
- display: flex;
- right: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
+
+.contacto-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Imagen alternativa para móvil */
+@media screen and (max-width: 768px) {
+    .services-container img {
+        content: url('img/serviciosmovill.png'); /* Imagen alternativa para móvil */
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
+    }
+    .slider {
+        flex-direction: column; /* Cambia a columna */
+        transition: transform 1s ease-in-out;
+    }
+        .destok-slide {
+            display: none;
+        }
+        .mobile-slide {
+            display: block;
+            height: 100vh;
+        }
+        
+        .slider-container  {
+            width: 100%;
+            height: 100vh;
+    
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 60;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+
+            }
+            .contacto {
+                padding: 10px;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .contacto-img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+}
+}
+
