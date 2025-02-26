@@ -33,46 +33,26 @@
         </video>
     </div>
 
-   <script>
+  <script>
+        // Función para mostrar/ocultar el menú
         function toggleMenu() {
             document.getElementById("navbar").classList.toggle("open");
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const video = document.getElementById("backgroundVideo");
+            const videos = document.querySelectorAll("video");
 
-            function playVideo() {
-                video.muted = true;
-                video.setAttribute("playsinline", "");
-                video.play().then(() => {
-                    console.log("Video autoplay funcionando.");
-                }).catch(error => {
-                    console.log("Autoplay bloqueado, esperando interacción...");
+            videos.forEach(video => {
+                video.setAttribute("muted", "true");
+                video.setAttribute("playsinline", "true");
+
+                video.play().catch(error => {
+                    console.log("Autoplay bloqueado, intentando reiniciar...");
+                    setTimeout(() => {
+                        video.play();
+                    }, 1000);
                 });
-            }
-
-            // Si el autoplay falla, fuerza la reproducción en iOS tocando la pantalla
-            function forcePlay() {
-                if (video.paused) {
-                    video.play();
-                    console.log("Reproducción forzada por interacción.");
-                }
-            }
-
-            // Intenta iniciar el video en la carga
-            playVideo();
-
-            // Si no funciona, cambia la fuente del video (truco para Safari)
-            setTimeout(() => {
-                if (video.paused) {
-                    video.load(); // Recarga el video si sigue pausado
-                    console.log("Safari detectado, recargando video...");
-                }
-            }, 1500);
-
-            // Agrega eventos para asegurarse de que se inicie en caso de fallo
-            document.body.addEventListener("click", forcePlay);
-            document.body.addEventListener("touchstart", forcePlay);
+            });
         });
     </script>
 
