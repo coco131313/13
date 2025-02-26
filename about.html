@@ -26,33 +26,56 @@
     </nav>
 
     <div class="about-section">
-        <video autoplay loop muted playsinline class="background-video ">
-            <source src="13.mp4" type="video/mp4" media="(min-width: 769px)">
-             <source src="13webvert.mov" type="video/mov" media="(max-width: 768px)">
+        <video id="backgroundVideo" class="background-video" muted playsinline loop>
+            <source src="13.mp4" type="video/mp4">
+            <source src="13webvert.mp4" type="video/mp4">
             Tu navegador no soporta videos.
         </video>
     </div>
+
     <script>
-   // Función para mostrar/ocultar el menú
-   function toggleMenu() {
-       document.getElementById("navbar").classList.toggle("open");
-   }
-   document.addEventListener("DOMContentLoaded", function () {
-            const videos = document.querySelectorAll("video");
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("open");
+        }
 
-            videos.forEach(video => {
-                video.setAttribute("muted", "true");
-                video.setAttribute("playsinline", "true");
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("backgroundVideo");
 
-                video.play().catch(error => {
-                    console.log("Autoplay bloqueado, intentando reiniciar...");
-                    setTimeout(() => {
-                        video.play();
-                    }, 1000);
+            function playVideo() {
+                video.muted = true;
+                video.setAttribute("playsinline", "");
+                video.play().then(() => {
+                    console.log("Video autoplay funcionando.");
+                }).catch(error => {
+                    console.log("Autoplay bloqueado, esperando interacción...");
                 });
-            });
+            }
+
+            // Si el autoplay falla, fuerza la reproducción en iOS tocando la pantalla
+            function forcePlay() {
+                if (video.paused) {
+                    video.play();
+                    console.log("Reproducción forzada por interacción.");
+                }
+            }
+
+            // Intenta iniciar el video en la carga
+            playVideo();
+
+            // Si no funciona, cambia la fuente del video (truco para Safari)
+            setTimeout(() => {
+                if (video.paused) {
+                    video.load(); // Recarga el video si sigue pausado
+                    console.log("Safari detectado, recargando video...");
+                }
+            }, 1500);
+
+            // Agrega eventos para asegurarse de que se inicie en caso de fallo
+            document.body.addEventListener("click", forcePlay);
+            document.body.addEventListener("touchstart", forcePlay);
         });
-</script>
+    </script>
 
 </body>
 </html>
+
