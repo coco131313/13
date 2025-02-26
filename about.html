@@ -32,7 +32,7 @@
         </video>
     </div>
 
-    <script>
+   <script>
         function toggleMenu() {
             document.getElementById("navbar").classList.toggle("open");
         }
@@ -49,6 +49,29 @@
                     console.log("Autoplay bloqueado, esperando interacción...");
                 });
             }
+
+            // Si el autoplay falla, fuerza la reproducción en iOS tocando la pantalla
+            function forcePlay() {
+                if (video.paused) {
+                    video.play();
+                    console.log("Reproducción forzada por interacción.");
+                }
+            }
+
+            // Intenta iniciar el video en la carga
+            playVideo();
+
+            // Si no funciona, cambia la fuente del video (truco para Safari)
+            setTimeout(() => {
+                if (video.paused) {
+                    video.load(); // Recarga el video si sigue pausado
+                    console.log("Safari detectado, recargando video...");
+                }
+            }, 1500);
+
+            // Agrega eventos para asegurarse de que se inicie en caso de fallo
+            document.body.addEventListener("click", forcePlay);
+            document.body.addEventListener("touchstart", forcePlay);
         });
     </script>
 
