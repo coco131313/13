@@ -50,13 +50,6 @@
                 });
             }
 
-            // Si el autoplay falla, fuerza la reproducción en iOS tocando la pantalla
-            function forcePlay() {
-                if (video.paused) {
-                    video.play();
-                    console.log("Reproducción forzada por interacción.");
-                }
-            }
 
             // Intenta iniciar el video en la carga
             playVideo();
